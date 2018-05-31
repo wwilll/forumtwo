@@ -5,7 +5,9 @@
         <span class="u-id">{{userid}}</span>
         <span class="u-role">{{userrole}}</span>
       </div>
-      <button class="fr" @click="logout" v-if="inOut">{{inOutDes}}</button>
+      <div class="fr">
+        <button class="logout" @click="logout" v-if="inOut">{{inOutDes}}</button>
+      </div>
     </div>
     <div class="manager" v-if="isManage">
       <button class="umbtn" @click="userManage">用户管理{{result}}</button>
@@ -19,7 +21,7 @@
             <option>general</option>
           </select>
           <button @click="saverole(item.id,item.role)">保存</button>
-          <button class="delbtn" @click="deleteuser(item.id)">delete</button>
+          <button class="delbtn" @click="deleteuser(item.id,item.role)">delete</button>
         </div>
       </div>
     </div>
@@ -134,11 +136,13 @@ export default {
         this.result = null
       }
     },
-    deleteuser (id) {
-      if (id === 'root') {
+    deleteuser (id, role) {
+      if (role === 'root') {
         alert('超级管理员不允许删除')
       } else if (this.userid === id) {
         alert('不能删除自己')
+      } else if (this.userid !== 'root' && role === 'manager') {
+        alert('您无权限删除管理员')
       } else {
         var c = confirm('确定删除此用户吗？')
         if (!c) { return }
@@ -170,6 +174,8 @@ export default {
     saverole (id, role) {
       if (id === 'root' || role === 'root') {
         alert('不允许修改或添加超级管理员权限')
+      } else if (role === 'general' && this.userrole !== 'root') {
+        alert('您无权修改管理员权限')
       } else {
         var url = this.$myhost + 'changerole'
         this.$ajax.post(url, {id: id, role: role}).then((response) => {
@@ -240,19 +246,19 @@ export default {
 <style>
 #info{
   position: relative;
-  height: 92%;
+  height: 93%;
   background: -webkit-linear-gradient(#4fafea, #baddf2); /* Safari 5.1 - 6.0 */
   background: -o-linear-gradient(#4fafea, #baddf2); /* Opera 11.1 - 12.0 */
   background: -moz-linear-gradient(#4fafea, #baddf2); /* Firefox 3.6 - 15 */
   background: linear-gradient(#4fafea, #baddf2); /* 标准的语法（必须放在最后） */
-  overflow: scroll;
+  overflow: auto;
 }
 #info button.delbtn{
   color: white;
-  padding: 2px 9px;
+  padding: 3px 9px;
   background-color: red;
   border-radius: 10px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 #info .loginfo{
   padding: 30px 15px;
@@ -273,18 +279,19 @@ export default {
   display: block;
   font-size: 1rem;
 }
-#info .loginfo button{
-  height: 50px;
+#info .loginfo button.logout{
+  height: 30px;
   display: inline-block;
-  font-size: 2rem;
+  font-size: 1rem;
   border-radius: 8px;
   border: 1px solid red;
   color: white;
   background-color: red;
-  padding: 3px 20px;
+  padding: 3px 15px;
+  vertical-align: bottom;
 }
 #info .umbtn{
-  width: 96%;
+  width: 92%;
   font-size: 1.5rem;
   border-radius: 10px;
 }

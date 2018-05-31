@@ -108,7 +108,7 @@ export default {
   position: relative;
   top:0;
   left: 0;
-  height: 91%;
+  height: 93%;
   background: -webkit-linear-gradient(#cdf7f5, #baddf2); /* Safari 5.1 - 6.0 */
   background: -o-linear-gradient(#cdf7f5, #baddf2); /* Opera 11.1 - 12.0 */
   background: -moz-linear-gradient(#cdf7f5, #baddf2); /* Firefox 3.6 - 15 */
@@ -126,6 +126,7 @@ export default {
 #writepost .i-body{
   width: 100%;
   /* background-color: yellow; */
+  /* text-align: center; */
 }
 #writepost .i-body .ibi{
   width: 100%;

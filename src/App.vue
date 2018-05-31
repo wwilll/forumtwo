@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <div class="a-content">
+      <router-view/>
+    </div>
     <Footbar/>
   </div>
 </template>
@@ -48,5 +50,12 @@ a{
   text-align: center;
   color: #2c3e50;
   height: 100%;
+  overflow: hidden;
+}
+#app .a-content{
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding-bottom: 51px;
 }
 </style>

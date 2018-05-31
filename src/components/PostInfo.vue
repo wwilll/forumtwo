@@ -30,8 +30,8 @@
       </div>
       <div class="p-review" v-if="item.focus.zk">
         <div class="p-r-list cf" v-for="(r,index) in item.review" v-bind:key="index">
-          <div class="p-r-user fl">{{r.id+' :'}}</div>
-          <p class="p-r-c fl">{{r.rew}}</p>
+          <div class="p-r-user">{{r.id+' :'}}</div>
+          <p class="p-r-c">{{r.rew}}</p>
         </div>
       </div>
     </div>
@@ -203,12 +203,12 @@ export default {
   height: 50px;
 }
 #postinfo .p-h-delbtn{
-  padding: 10px;
-  font-size: 20px;
-  line-height: 20px;
-  height: 20px;
+  margin-right: 5px;
+  padding: 6px 10px;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
   border-radius: 8px;
-  margin-top: 5px;
+  margin-top: 9px;
   background-color: red;
   color: white;
 }
@@ -227,10 +227,7 @@ export default {
   vertical-align: middle;
 }
 #postinfo .p-body{
-  margin-top: 5px;
-  background-color: rgba(196, 242, 242,.2);
-  border-top: 1px solid gray;
-  border-bottom: 1px solid #737a6b;
+  margin-top: 0.5rem;
 }
 #postinfo .p-b-title{
   line-height: 2rem;
@@ -242,9 +239,6 @@ export default {
   font-size: 1.5rem;
   font-weight: 600;
   margin: 0.5rem 0;
-  padding: 0.3rem 0;
-  border-top: 1px solid #dbfcae;
-  border-bottom: 1px solid #dbfcae;
 }
 #postinfo .p-b-content pre{
   white-space: pre-wrap;
@@ -264,8 +258,8 @@ export default {
 }
 #postinfo .p-foot .p-f-content{
   border: none;
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
+  border-top: 1px solid rgb(204, 195, 195);
+  border-bottom: 1px solid rgb(204, 195, 195);
   outline: none;
   resize: none;
   font-size: 1.5rem;
@@ -273,7 +267,7 @@ export default {
   width:100%;
   overflow:auto;
   word-break:break-all;
-  background-color: rgb(191, 236, 230);
+  background-color: rgb(223, 243, 240);
 }
 #postinfo .p-foot ul{
   display: flex;
@@ -285,31 +279,30 @@ export default {
   justify-content: center;
 }
 #postinfo .p-foot .submit{
-  font-size: 1.5rem;
-  padding: 5px 15px;
+  font-size: 1.2rem;
+  padding: 3px 10px;
   border-radius: 8px;
-  background-color: rgb(85, 214, 85);
+  background-color: rgb(57, 235, 57);
+  color: black;
 }
 #postinfo .p-review{
   max-height: 20rem;
   overflow: auto;
 }
 #postinfo .p-review .p-r-list{
-  margin: 10px 0 10px 20px;
-  padding: 5px 5%;
-  border-top: 1px solid gray;
+  margin: 0 0 0 2rem;
+  padding: 5px 0;
+  border-top: 1px solid rgb(219, 213, 213);
 }
 #postinfo .p-review .p-r-user{
-  width: 15%;
-  padding-right: 1rem;
+  color: rgb(89, 137, 226);
   font-size: 1.2rem;
   word-wrap:break-word;
   word-break:break-all;
 }
 #postinfo .p-review .p-r-c{
   text-align: left;
-  width: 75%;
-  font-size: 1.2rem;
+  font-size: 1rem;
   word-wrap:break-word;
   word-break:break-all;
 }

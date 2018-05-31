@@ -6,10 +6,10 @@
           <label for="username">用户名</label><input type="text" v-model="account" v-on:blur="losefocus(account)">
         </div>
         <div class="info upwd">
-          <label for="upwd">密&nbsp;&nbsp;&nbsp;&nbsp;码</label><input type="password" v-model="password">
+          <label for="upwd">密&nbsp;&nbsp;&nbsp;&nbsp;码</label><input type="password" autocomplete="new-password" v-model="password">
         </div>
         <div class="info cpwd" v-if="!loginbtn">
-          <label for="cpwd">重&nbsp;&nbsp;&nbsp;&nbsp;输</label><input type="password" v-model="cpassword">
+          <label for="cpwd">重&nbsp;&nbsp;&nbsp;&nbsp;输</label><input type="password" autocomplete="new-password" v-model="cpassword">
         </div>
         <div v-if="!loginbtn" class="avt cf">
           <div><input type="radio" id="one" value="/static/images/1.jpg" v-model="avatar"><img src="/static/images/1.jpg" alt="#"></div>
@@ -115,6 +115,7 @@ export default {
             this.useritems.push(user)
             window.localStorage.setItem('userinfo', JSON.stringify(this.useritems))
             this.$emit('isUser', response.data.account)
+            location.reload()
           } else if (response.data.status === 0) {
             this.result = '用户名密码不匹配'
           } else {}
@@ -163,6 +164,7 @@ export default {
             this.useritems.push(user)
             window.localStorage.setItem('userinfo', JSON.stringify(this.useritems))
             this.$emit('isUser', response.data.account)
+            location.reload()
           } else if (response.data.status === 0) {
             this.result = '注册失败:该用户已存在'
             this.account = ''
@@ -196,7 +198,7 @@ export default {
 }
 #logreg .login .prompt{
   min-height: 10%;
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
 }
 #logreg .login .prompt span{
   display: block;
@@ -249,8 +251,8 @@ export default {
 }
 #logreg .login .btn>button{
   flex: auto;
-  font-size: 2rem;
-  padding: 5px;
+  font-size: 1.2rem;
+  padding: 5px 10px;
   border: 1px solid black;
   border-radius: 10px;
   outline: none;
