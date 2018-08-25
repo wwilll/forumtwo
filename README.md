@@ -2,6 +2,10 @@
 
 > second design forum
 
+查看demo演示 
+
+![from forumtwo](https://github.com/wwilll/forumtwo/blob/master/static/formtwo.gif "demo") 
+
 ## Build Setup
 
 ``` bash
