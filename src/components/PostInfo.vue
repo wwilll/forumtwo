@@ -52,14 +52,6 @@ export default {
     }
   },
   props: ['posttype'],
-  watch: {
-    // posttype: function (posttype) {
-    //   alert(posttype)
-    //   this.testinfo.filter(item => {
-    //     if (this.posttype == 1) return item.account === '002'
-    //   })
-    // }
-  },
   mounted: function () {
     var url = this.$myhost + 'allpostings'
     this.$ajax.get(url).then((response) => {

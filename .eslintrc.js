@@ -1,6 +1,6 @@
 // https://eslint.org/docs/user-guide/configuring
 
-module.exports = {
+module.exports = { 
   root: true,
   parserOptions: {
     parser: 'babel-eslint'
@@ -21,6 +21,7 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    'indent': ['error', 4],
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
